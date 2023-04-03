@@ -8,7 +8,14 @@
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.0.0",
-    "prettier": "^2.8.7"
+    "prettier": "^2.8.7",
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/compiler-sfc": "^3.2.47",
+    "vite": "^4.2.1",
+    "vite-plugin-ruby": "^3.2.1"
+  },
+  "dependencies": {
+    "vue": "^3.2.36"
   },
   "license": "UNLICENSED"
 }
