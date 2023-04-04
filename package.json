@@ -1,0 +1,14 @@
+{
+  "scripts": {
+    "lint": "eslint --fix app/javascript/*.{js,vue} && eslint --fix app/javascript/**/*.{js,vue}",
+    "format": "prettier -w app/javascript/*.{js,vue} && prettier -w app/javascript/**/*.{s,vue}",
+    "fix": "yarn format && yarn lint" 
+  },
+  "devDependencies": {
+    "eslint": "^8.37.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-config-standard": "^17.0.0",
+    "prettier": "^2.8.7"
+  },
+  "license": "UNLICENSED"
+}

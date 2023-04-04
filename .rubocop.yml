@@ -1,0 +1,23 @@
+inherit_from: .rubocop_todo.yml
+Metrics/BlockLength:
+  Exclude:
+    - test/**/*
+
+Metrics/ClassLength:
+  Exclude:
+    - test/**/*
+
+AllCops:
+  NewCops: enable
+  Exclude:
+    - '**/templates/**/*'
+    - '**/vendor/**/*'
+    - app/views/**/*
+    - config/**/*
+    - config.ru
+    - node_modules/**/*
+    - db/migrate/*
+    - db/schema.rb
+    - storage/**/*
+    - tmp/**/*
+    - bin/**/*
