@@ -1,25 +1,19 @@
 <template>
-  <p>{{ state.message }}</p>
+  <div>
+    <h1>{{message}}</h1>
+    <p><input v-model="message"></p>
+  </div>
 </template>
 
-<script lang="ts">
-import { defineComponent } from 'vue'
-
-export default defineComponent({
-  name: 'App',
-  setup() {
+<script>
+export default {
+  data() {
     return {
-      state: {
-        message: "Hello Vue3"
-      }
-    }
+      message: ''
+    };
+  },
+  created() {
+    this.message = 'hello';
   }
-})
-</script>
-
-<style scoped>
-p {
-  font-size: 2em;
-  text-align: center;
 }
-</style>
+</script>
