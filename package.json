@@ -2,20 +2,37 @@
   "scripts": {
     "lint": "eslint --fix app/javascript/*.{js,vue} && eslint --fix app/javascript/**/*.{js,vue}",
     "format": "prettier -w app/javascript/*.{js,vue} && prettier -w app/javascript/**/*.{s,vue}",
-    "fix": "yarn format && yarn lint" 
+    "fix": "yarn format && yarn lint",
+    "build": "webpack --config ./webpack.config.js"
   },
   "devDependencies": {
+    "@vitejs/plugin-vue": "^4.1.0",
+    "@vue/compiler-sfc": "^3.2.47",
     "eslint": "^8.37.0",
     "eslint-config-prettier": "^8.8.0",
     "eslint-config-standard": "^17.0.0",
     "prettier": "^2.8.7",
-    "@vitejs/plugin-vue": "^4.1.0",
-    "@vue/compiler-sfc": "^3.2.47",
     "vite": "^4.2.1",
     "vite-plugin-ruby": "^3.2.1"
   },
   "dependencies": {
-    "vue": "^3.2.36"
+    "@babel/core": "^7.21.4",
+    "@babel/preset-env": "^7.21.4",
+    "babel-loader": "^9.1.2",
+    "core-js": "3",
+    "css-loader": "^6.7.3",
+    "file-loader": "^6.2.0",
+    "node-sass": "^8.0.0",
+    "sass-loader": "^13.2.2",
+    "url-loader": "^4.1.1",
+    "vue": "^3.2.47",
+    "vue-loader": "^17.0.1",
+    "vue-template-compiler": "^2.7.14",
+    "webpack": "^5.78.0",
+    "webpack-cli": "^5.0.1",
+    "webpack-dev-server": "^4.13.2",
+    "webpack-manifest-plugin": "^5.0.0",
+    "webpack-merge": "^5.8.0"
   },
   "license": "UNLICENSED"
 }
