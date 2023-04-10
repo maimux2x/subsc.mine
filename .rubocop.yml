@@ -21,3 +21,6 @@ AllCops:
     - storage/**/*
     - tmp/**/*
     - bin/**/*
+
+Style/Documentation:
+  Enabled: false
