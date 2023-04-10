@@ -1,7 +1,7 @@
 {
   "scripts": {
     "lint": "eslint --fix app/javascript/*.{js,vue} && eslint --fix app/javascript/**/*.{js,vue}",
-    "format": "prettier -w app/javascript/*.{js,vue} && prettier -w app/javascript/**/*.{s,vue}",
+    "format": "prettier -w app/javascript/*.{js,vue} && prettier -w app/javascript/**/*.{js,vue}",
     "fix": "yarn format && yarn lint",
     "build": "webpack --config ./webpack.config.js"
   },

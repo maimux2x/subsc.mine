@@ -9,5 +9,11 @@ html
     = stylesheet_link_tag "application", "data-turbo-track": "reload"
     = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
   body
+    div
+      - if current_user
+        | ログイン中 
+        strong = current_user.uid
+        | !
+        = link_to "ログアウト", signout_path, id: "sign_out"
     main.container.mx-auto.mt-28.px-5.flex
       = yield
