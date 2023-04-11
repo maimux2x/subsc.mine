@@ -13,7 +13,7 @@ html
       .flex.items-center.flex-shrink-0.text-white.mr-6
         span.font-semibold.text-xl.tracking-tight Subsc.mine
       .w-full.block.flex-grow.lg:flex.lg:items-center.lg:w-auto
-        - if current_user
+        - if logged_in?
           = link_to 'ログアウト', signout_path, id: 'sign_out'
     main.container.mx-auto.mt-28.px-5.flex
       = yield
