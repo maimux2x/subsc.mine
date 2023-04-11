@@ -35,4 +35,4 @@ jobs:
       run: bundle exec slim-lint app/views -c .slim-lint.yml
 
     - name: JS Lint
-      run: bin/yarn lint
+      run: yarn fix
