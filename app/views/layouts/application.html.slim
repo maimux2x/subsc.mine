@@ -3,17 +3,17 @@ html
   head
     title
       | SubscMine
-    meta[name="viewport" content="width=device-width,initial-scale=1"]
+    meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = csp_meta_tag
-    = stylesheet_link_tag "tailwind", "inter-font", "data-turbo-track": "reload"
-    = javascript_include_tag "application", "data-turbo-track": "reload", defer: true, nonce: true
+    = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload'
+    = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, nonce: true
   body
     nav.flex.items-center.justify-between.flex-wrap.bg-teal-500.p-6
-      div.flex.items-center.flex-shrink-0.text-white.mr-6
+      .flex.items-center.flex-shrink-0.text-white.mr-6
         span.font-semibold.text-xl.tracking-tight Subsc.mine
-      div.w-full.block.flex-grow.lg:flex.lg:items-center.lg:w-auto
+      .w-full.block.flex-grow.lg:flex.lg:items-center.lg:w-auto
         - if current_user
-          = link_to "ログアウト", signout_path, id: "sign_out"
+          = link_to 'ログアウト', signout_path, id: 'sign_out'
     main.container.mx-auto.mt-28.px-5.flex
       = yield
