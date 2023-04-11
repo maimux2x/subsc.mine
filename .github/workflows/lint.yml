@@ -32,7 +32,7 @@ jobs:
       run: bundle exec rubocop
 
     - name: Slim Lint
-      run: bundle exec slim-lint app/views -c config/slim_lint.yml
+      run: bundle exec slim-lint app/views -c .slim-lint.yml
 
     - name: JS Lint
-      run: bin/yarn lint
+      run: yarn fix
