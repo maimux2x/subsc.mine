@@ -15,5 +15,8 @@ html
       .w-full.block.flex-grow.lg:flex.lg:items-center.lg:w-auto
         - if logged_in?
           = link_to 'ログアウト', signout_path, id: 'sign_out'
+    .container
+      - if flash.notice.present?
+        .alert.alert-success.bg-orange-100.border-l-4.border-orange-500.text-orange-700.p-4 = flash.notice
     main.container.mx-auto.mt-28.px-5.flex
       = yield
