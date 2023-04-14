@@ -6,6 +6,16 @@ ja:
         restrict_dependent_destroy:
           has_one: "%{record}が存在しているので削除できません"
           has_many: "%{record}が存在しているので削除できません"
+    models:
+      subscriptions: サブスクリプション
+    attributes:
+      subscription:
+        name: サービス名
+        payment_date: お支払日
+        fee: お支払い金額
+        my_account_url: マイアカウントURL
+        subscribed: 購読有無
+        cycle: 周期
   date:
     abbr_day_names:
     - 日
