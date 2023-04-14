@@ -3,9 +3,9 @@
 .bg-blue-500.w-32.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
     = link_to '新規登録', new_subscription_path
 
-.my-5
-  - @subscriptions.each do |subscription|
-    table.min-w-full.text-left.text-sm.font-light
+- @subscriptions.each do |subscription|
+  .my-10
+    table.min-w-full.text-left.text-sm.font-light.border.dark:border-zinc-950
       tbody
           tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
             th = Subscription.human_attribute_name(:name)
