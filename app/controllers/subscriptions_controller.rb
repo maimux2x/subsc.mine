@@ -24,7 +24,7 @@ class SubscriptionsController < ApplicationController
   def update
     subscription = Subscription.find(params[:id])
     subscription.update!(subscription_params)
-    redirect_to root_path, notich: "サブスクリプション「#{subscription.name}」を編集しました。"
+    redirect_to root_path, notice: "サブスクリプション「#{subscription.name}」を編集しました。"
   end
 
   def delete; end
