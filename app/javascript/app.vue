@@ -1,7 +1,6 @@
 <template>
   <div>
     <h1>{{ message }}</h1>
-    <p><input v-model="message" /></p>
   </div>
 </template>
 
@@ -13,7 +12,7 @@ export default {
     };
   },
   created() {
-    this.message = "hello";
+    this.message = "Subsc.mineでサブスクリプションを管理しよう！";
   },
 };
 </script>
