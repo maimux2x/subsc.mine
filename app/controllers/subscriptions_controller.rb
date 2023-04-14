@@ -17,9 +17,15 @@ class SubscriptionsController < ApplicationController
     redirect_to root_path, notice: "サブスクリプション「#{subscription.name}」を登録しました。"
   end
 
-  def edit; end
+  def edit
+    @subscription = Subscription.find(params[:id])
+  end
 
-  def update; end
+  def update
+    subscription = Subscription.find(params[:id])
+    subscription.update!(subscription_params)
+    redirect_to root_path, notich: "サブスクリプション「#{subscription.name}」を編集しました。"
+  end
 
   def delete; end
 
