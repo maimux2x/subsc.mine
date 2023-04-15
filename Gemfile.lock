@@ -105,9 +105,6 @@ GEM
       hpricot
     i18n (1.12.0)
       concurrent-ruby (~> 1.0)
-    importmap-rails (1.1.5)
-      actionpack (>= 6.0.0)
-      railties (>= 6.0.0)
     io-console (0.6.0)
     irb (1.6.3)
       reline (>= 0.3.0)
@@ -263,6 +260,8 @@ GEM
       actionpack (>= 5.2)
       activesupport (>= 5.2)
       sprockets (>= 3.0.0)
+    stimulus-rails (1.2.1)
+      railties (>= 6.0.0)
     tailwindcss-rails (2.0.25-arm64-darwin)
       railties (>= 6.0.0)
     tailwindcss-rails (2.0.25-x86_64-linux)
@@ -306,7 +305,6 @@ DEPENDENCIES
   debug
   dotenv-rails
   html2slim
-  importmap-rails
   jbuilder
   jsbundling-rails
   omniauth-google-oauth2
@@ -322,6 +320,7 @@ DEPENDENCIES
   slim-rails
   slim_lint
   sprockets-rails
+  stimulus-rails
   tailwindcss-rails
   turbo-rails
   tzinfo-data
