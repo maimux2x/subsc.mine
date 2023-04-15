@@ -22,7 +22,7 @@ gem "importmap-rails"
 gem "turbo-rails"
 
 # Hotwire's modest JavaScript framework [https://stimulus.hotwired.dev]
-# gem "stimulus-rails"
+gem "stimulus-rails"
 gem 'slim-rails'
 gem 'html2slim'
 # Use Tailwind CSS [https://github.com/rails/tailwindcss-rails]

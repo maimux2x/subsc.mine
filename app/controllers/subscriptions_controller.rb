@@ -27,7 +27,14 @@ class SubscriptionsController < ApplicationController
     redirect_to root_path, notice: "サブスクリプション「#{subscription.name}」を編集しました。"
   end
 
-  def delete; end
+  def destroy
+    subscription = Subscription.find(params[:id])
+    subscription.destroy
+
+    respond_to do |format|
+      format.html { redirect_to root_path, notice: "サブスクリプション「#{subscription.name}を削除しました", status: :see_other }
+    end
+  end
 
   private
 

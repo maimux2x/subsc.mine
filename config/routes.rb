@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resources :sessions, only: %i(new create destroy)
   resources :welcome, only: %i(index)
-  resources :subscriptions
+  resources :subscriptions, only: %i(index new create edit update destroy)
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
