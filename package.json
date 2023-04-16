@@ -39,5 +39,6 @@
     "webpack-manifest-plugin": "^5.0.0",
     "webpack-merge": "^5.8.0"
   },
-  "license": "UNLICENSED"
+  "license": "UNLICENSED",
+  "packageManager": "yarn@1.22.19"
 }
