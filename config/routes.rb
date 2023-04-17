@@ -5,6 +5,8 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  resource :retirements
+
   resources :sessions, only: %i(new create destroy)
   resources :welcome, only: %i(index)
   resources :subscriptions, only: %i(index new create edit update destroy)
