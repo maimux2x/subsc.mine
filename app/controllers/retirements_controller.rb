@@ -1,4 +1,6 @@
 class RetirementsController < ApplicationController
+  def new; end
+
   def create
     return unless current_user.destroy
 
