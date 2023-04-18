@@ -19,6 +19,11 @@ module.exports = {
         test: /\.(vue)$/,
         exclude: /node_modules/,
         use: ['vue-loader'],
+        options: {
+          compilerOptions: {
+            isCustomElement: id => id === 'app'
+          }
+        }
       },
       {
         test: /\.(js)$/,

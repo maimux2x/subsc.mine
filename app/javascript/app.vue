@@ -1,18 +1,18 @@
 <template>
-  <div>
-    <h1>{{ message }}</h1>
+  <div class="m-4">
+    <ButtonSample />
+    <StatusDaialog />
   </div>
 </template>
 
 <script>
-export default {
-  data() {
-    return {
-      message: "",
-    };
+import { defineComponent } from "vue";
+import StatusDaialog from "./components/daialog/statusDaialog.vue";
+
+export default defineComponent({
+  name: "App",
+  component: {
+    StatusDaialog,
   },
-  created() {
-    this.message = "Subsc.mineでサブスクリプションを管理しよう！";
-  },
-};
+});
 </script>

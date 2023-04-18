@@ -4,10 +4,8 @@ import "regenerator-runtime/runtime";
 import "@hotwired/turbo-rails";
 
 import { createApp } from "vue";
-import Hello from "./app.vue";
-
-console.log("lehoo wordl");
+import App from "./app.vue";
 
 document.addEventListener("DOMContentLoaded", () => {
-  createApp(Hello).mount("#app");
+  createApp(App).mount("#app");
 });

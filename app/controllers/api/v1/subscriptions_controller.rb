@@ -12,6 +12,11 @@ module Api
         render json: subscriptions
       end
 
+      def destroy
+        @subscription.destroy!
+        head :no_content
+      end
+
       private
 
       def set_subscription
