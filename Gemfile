@@ -83,3 +83,4 @@ gem 'omniauth-rails_csrf_protection'
 gem 'rails-i18n', '~> 7.0.0'
 
 gem "dockerfile-rails", ">= 1.2", group: :development
+gem 'active_decorator'
