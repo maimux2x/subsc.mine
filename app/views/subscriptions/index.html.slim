@@ -15,7 +15,7 @@
             td = subscription.payment_date
           tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
             th = '次回お支払い予定日'
-            td = subscription.calc_next_payment_date
+            td = I18n.l subscription.calc_next_payment_date, format: :short
           tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
             th = Subscription.human_attribute_name(:fee)
             td = subscription.fee
