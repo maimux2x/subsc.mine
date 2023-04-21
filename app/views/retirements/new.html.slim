@@ -1,8 +1,9 @@
-h2.title.is-2.my-6 アカウント削除確認画面
+= turbo_frame_tag "retirements" do
+  h2.title.is-2.my-6 アカウント削除確認画面
 
-p.my-4 アカウントを削除した場合、登録したサブスクリプションが全て削除されます。
+  p.my-4 アカウントを削除した場合、登録したサブスクリプションが全て削除されます。
 
-= button_to 'アカウントを削除する', retirements_path,
-  class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', data: { cturbo_confirm: '本当に削除しますか？' }
-.has-text-left.pt-5
-  = link_to '戻る', subscriptions_path
+  = button_to 'アカウントを削除する', retirements_path,
+    class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', data: { cturbo_confirm: '本当に削除しますか？' }
+  .has-text-left.pt-5
+
