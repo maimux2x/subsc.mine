@@ -1,10 +1,12 @@
 const path    = require('path')
 const webpack = require('webpack')
-const { VueLoaderPlugin } = require('vue-loader')
 const env = process.env.NODE_ENV || 'development'
 
 module.exports = {
   mode: env,
+  resolve: {
+    extensions: ['.js']
+  },
   entry: {
     application: './app/javascript/application.js'
   },
@@ -16,9 +18,19 @@ module.exports = {
   module: {
     rules: [
       {
-        test: /\.(vue)$/,
+        test: /\.js/,
         exclude: /node_modules/,
-        use: ['vue-loader'],
+        use: {
+          loader: 'babel-loader',
+          options: {
+            presets: [
+              '@babel/preset-env'
+            ],
+            plugins: [
+              '@babel/plugin-proposal-class-properties'
+            ]
+          }
+        }
       },
       {
         test: /\.(js)$/,
@@ -30,11 +42,6 @@ module.exports = {
   plugins: [
     new webpack.optimize.LimitChunkCountPlugin({
       maxChunks: 1
-    }),
-    new webpack.DefinePlugin({
-      __VUE_OPTIONS_API__: true,
-      __VUE_PROD_DEVTOOLS__: false
-    }),
-    new VueLoaderPlugin()
+    })
   ]
 }
