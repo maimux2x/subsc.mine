@@ -3,11 +3,11 @@ import "core-js/stable";
 import "regenerator-runtime/runtime";
 import "@hotwired/turbo-rails";
 
-import { createApp } from "vue";
-import Hello from "./app.vue";
+// import { createApp } from "vue";
+// import Hello from "./app.vue";
 
-console.log("lehoo wordl");
+// console.log("lehoo wordl");
 
-document.addEventListener("DOMContentLoaded", () => {
-  createApp(Hello).mount("#app");
-});
+// document.addEventListener("DOMContentLoaded", () => {
+//   createApp(Hello).mount("#app");
+// });
