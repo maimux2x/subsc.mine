@@ -6,10 +6,10 @@ export default class extends Controller {
   connect() {}
 
   open() {
-    this.modalTargets.classList.remove("hidden");
+    this.modalTarget.classList.remove("hidden");
   }
 
   close() {
-    this.modalTargets.classList.add("hidden");
+    this.modalTarget.classList.add("hidden");
   }
 }
