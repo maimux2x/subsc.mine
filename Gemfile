@@ -84,3 +84,5 @@ gem 'rails-i18n', '~> 7.0.0'
 
 gem "dockerfile-rails", ">= 1.2", group: :development
 gem 'active_decorator'
+gem 'icalendar', '~> 2.8'
+gem 'tzinfo', '~> 2.0', '>= 2.0.6'
