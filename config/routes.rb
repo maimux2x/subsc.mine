@@ -13,6 +13,7 @@ Rails.application.routes.draw do
 
   namespace :subscriptions do
     resources :calendars, only: %i(index)
+    resources :status, only: %i(edit update)
   end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 

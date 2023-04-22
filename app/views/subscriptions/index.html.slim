@@ -1,41 +1,44 @@
-#app
-
 .bg-blue-500.w-28.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
     = button_to '新規登録', new_subscription_path, method: :get
 .bg-blue-500.w-48.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
     = button_to 'カレンダー連携', subscriptions_calendars_url(protocol: :webcal, format: :ics)
 
 - @subscriptions.each do |subscription|
-  .my-10
-    table.min-w-full.text-left.text-sm.font-light.border.dark:border-zinc-950
-      tbody
-          tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
-            th = Subscription.human_attribute_name(:name)
-            td = subscription.name
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = Subscription.human_attribute_name(:payment_date)
-            td = subscription.payment_date
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = '次回お支払い予定日'
-            td = I18n.l subscription.calc_next_payment_date, format: :short
-          tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
-            th = Subscription.human_attribute_name(:fee)
-            td = subscription.fee
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = Subscription.human_attribute_name(:my_account_url)
-            td = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: "noopener noreferrer"
-          tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
-            th = Subscription.human_attribute_name(:subscribed)
-            td = subscription.subscribed_status
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = Subscription.human_attribute_name(:cycle)
-            td = subscription.cycle
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = '操作'
-            td = button_to '編集', edit_subscription_path(subscription), method: :get, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
-          tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
-            th = '操作'
-            td = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「 #{subscription.name} 」を削除します。よろしいですか?" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"
+  a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
+    .my-10
+      table.min-w-full.text-left.text-sm.font-light.border.dark:border-zinc-950
+        tbody.leading-10
+            tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
+              th = Subscription.human_attribute_name(:name)
+              td = subscription.name
+            tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
+              th = Subscription.human_attribute_name(:payment_date)
+              td = subscription.payment_date
+            tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
+              th = '次回お支払い予定日'
+              td = I18n.l subscription.calc_next_payment_date, format: :short
+            tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
+              th = Subscription.human_attribute_name(:fee)
+              td = subscription.fee
+            tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
+              th = Subscription.human_attribute_name(:my_account_url)
+              td = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: "noopener noreferrer"
+            tr.border-b.bg-neutral-100.dark:border-neutral-500.dark:bg-neutral-700
+              th = Subscription.human_attribute_name(:subscribed)
+              td = subscription.subscribed_status
+            tr.border-b.bg-white.dark:border-neutral-500.dark:bg-neutral-600
+              th = Subscription.human_attribute_name(:cycle)
+              td = subscription.cycle
+      .bg-blue-500.w-48.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
+        = button_to 'ステータス変更', edit_subscriptions_status_path(subscription), method: :get, data: { turbo_frame: 'status' }
+      .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
+        .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-max.h-max.bg-white.p-10
+          = turbo_frame_tag "status"
+      .bg-blue-500.w-28.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
+        = button_to '編集', edit_subscription_path(subscription), method: :get
+      .bg-blue-500.w-28.hover:bg-blue-700.text-white.font-bold.py-2.px-4.my-10.border.border-blue-700.rounded
+        = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「 #{subscription.name} 」を削除します。よろしいですか?" }
+
 .w-24.hover:text-blue-600.py-2.px-4.my-5
   = link_to '退会', new_retirements_path, data: { turbo_frame: 'retirements' }
 .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
