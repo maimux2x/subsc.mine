@@ -1,16 +1,16 @@
 .flex.flex-initial
-  .flex.items-center.flex-shrink-0.mr-10
-    .bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+  .flex.items-center.flex-shrink-0.mr-5
+    .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
         = button_to '新規登録', new_subscription_path, method: :get
   .flex.items-center.flex-shrink-0
-    .bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+    .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
         = button_to 'カレンダー連携', subscriptions_calendars_url(protocol: :webcal, format: :ics)
 
 - @subscriptions.each do |subscription|
   a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
     .my-10
-      table.min-w-full.text-left.text-base.border.dark:border-zinc-950
-        tbody.leading-10
+      table.min-w-full.text-left.border.dark:border-zinc-950
+        tbody.leading-10.text-sm.md:text-base
             tr.border-b
               th = Subscription.human_attribute_name(:name)
               td = subscription.name
@@ -33,18 +33,18 @@
               th = Subscription.human_attribute_name(:cycle)
               td = subscription.cycle
       .flex.justify-center
-        .mt-10.mr-10.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+        .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to 'ステータス変更', edit_subscriptions_status_path(subscription), method: :get, data: { turbo_frame: 'status' }
         .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
           .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-max.h-max.bg-white.p-10
             = turbo_frame_tag "status"
-        .mt-10.mr-10.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+        .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to '編集', edit_subscription_path(subscription), method: :get
-        .mt-10.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+        .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「 #{subscription.name} 」を削除します。よろしいですか?" }
 
-.w-24.hover:text-blue-600.py-2.px-4.my-5
+.w-24.hover:text-blue-600.py-2.px-4.my-5.text-sm.md:text-base
   = link_to '退会', new_retirements_path, data: { turbo_frame: 'retirements' }
-.hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
-  .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.h-full.sm:h-max.bg-white.p-10
+.hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
+  .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
     = turbo_frame_tag "retirements"
