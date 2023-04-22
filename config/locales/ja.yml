@@ -12,9 +12,9 @@ ja:
       subscription:
         name: サービス名
         payment_date: お支払日
-        fee: お支払い金額
-        my_account_url: マイアカウントURL
-        subscribed: 購読有無
+        fee: お支払金額
+        my_account_url: マイアカウント
+        subscribed: ステータス
         cycle: 周期
   date:
     abbr_day_names:
