@@ -1,12 +1,15 @@
 = turbo_frame_tag "retirements" do
 
-  h2.title.is-2.my-6 アカウント削除確認画面
+  h1.font-semibold.text-xl アカウント削除確認画面
 
-  p.my-4 アカウントを削除した場合、登録したサブスクリプションが全て削除されます。
+  p.my-4 ※アカウントを削除した場合、登録したサブスクリプションが全て削除されます。
+  p.my-4 ※この操作は取り消せません。
 
-  = button_to 'アカウントを削除する', retirements_path,
-    class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', data: { cturbo_confirm: '本当に削除しますか？' }
-  .has-text-left.pt-5
-
-  = button_to 'キャンセル', subscriptions_path, method: :get, data: { turbo: "false" },
-    class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+  .flex.flex-initial
+    .flex.items-center.flex-shrink-0.mr-10
+      = button_to 'アカウントを削除する', retirements_path,
+        class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded', data: { cturbo_confirm: '本当に削除しますか？' }
+      .has-text-left.pt-5
+    .flex.items-center.flex-shrink-0.mr-10
+      = button_to 'キャンセル', subscriptions_path, method: :get, data: { turbo: "false" },
+        class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
