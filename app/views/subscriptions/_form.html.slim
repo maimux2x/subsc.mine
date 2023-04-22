@@ -15,13 +15,13 @@
     = f.number_field :fee, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
   .my-5
     = f.label :my_account_url
-    = f.url_field :my_account_url, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
+    = f.url_field :my_account_url, placeholder: "https://example.com/user", class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
   .my-5
     = f.label :subscribed
     = f.select :subscribed, [['停止中', false], ['継続中', true]], { include_blank: true, selected: true },
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24"
   .my-5
     = f.label :cycle
-    = f.select :cycle, [[1, 1], [2, 2], [3, 3], [6, 6], [12, 12]], { include_blank: '選択してください' },
+    = f.select :cycle, [['1ヶ月毎', 1], ['2ヶ月毎', 2], ['3ヶ月毎', 3], ['6ヶ月毎', 6], ['12ヶ月毎', 12]], { include_blank: '選択してください' },
       class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-48"
   = f.submit nil, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded"

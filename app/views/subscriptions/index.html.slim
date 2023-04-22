@@ -18,11 +18,11 @@
               th = Subscription.human_attribute_name(:payment_date)
               td = subscription.payment_date
             tr.border-b
-              th = '次回お支払い予定日'
+              th = '次回お支払日'
               td = I18n.l subscription.calc_next_payment_date, format: :short
             tr.border-b
               th = Subscription.human_attribute_name(:fee)
-              td = subscription.fee
+              td = "#{subscription.fee}円"
             tr.border-b
               th = Subscription.human_attribute_name(:my_account_url)
               td = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: "noopener noreferrer"
@@ -31,7 +31,7 @@
               td = subscription.subscribed_status
             tr.border-b
               th = Subscription.human_attribute_name(:cycle)
-              td = subscription.cycle
+              td = "#{subscription.cycle}ヶ月毎"
       .flex.justify-center
         .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to 'ステータス変更', edit_subscriptions_status_path(subscription), method: :get, data: { turbo_frame: 'status' }
