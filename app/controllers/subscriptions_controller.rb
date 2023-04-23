@@ -5,7 +5,6 @@ class SubscriptionsController < ApplicationController
 
   def index
     @subscriptions = current_user.subscriptions
-    render 
   end
 
   def show; end

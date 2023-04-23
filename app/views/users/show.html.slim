@@ -1,0 +1,10 @@
+  = turbo_frame_tag "calendar" do
+    h1.font-semibold.text-xl カレンダー連携
+
+    .flex.flex-initial.flex-wrap
+      .flex.items-center.flex-shrink-0.mr-10
+        = button_to 'カレンダーと連携する', user_calendars_url(protocol: :webcal, only_path: :false, format: :ics, user_id: :user_id), method: :get,
+          class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5'
+      .flex.items-center.flex-shrink-0.mr-10
+        = button_to 'キャンセル', subscriptions_path, method: :get, data: { turbo: "false" },
+          class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5'

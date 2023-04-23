@@ -7,7 +7,7 @@ Rails.application.routes.draw do
 
   resource :retirements
   
-  resources :users, only: %i(index)
+  resources :users, only: %i(show)
   resources :sessions, only: %i(new create destroy)
   resources :welcome, only: %i(index)
   resources :subscriptions, only: %i(index new create edit update destroy)
