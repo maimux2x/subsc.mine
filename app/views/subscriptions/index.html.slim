@@ -6,6 +6,10 @@
     .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
         = button_to 'カレンダー連携', subscriptions_calendars_url(protocol: :webcal, format: :ics)
 
+- if @subscriptions.blank?
+  a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
+    h1.font-semibold.text-xl Subsc.mineでサブスクリプションの管理をしよう！
+
 - @subscriptions.each do |subscription|
   a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
     .my-10
