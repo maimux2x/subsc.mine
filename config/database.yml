@@ -86,4 +86,4 @@ production:
   <<: *default
   database: Subsc_mine_production
   username: Subsc_mine
-  password: <%= ENV["SUBSC_MINE_DATABASE_PASSWORD"] %>
+  password: <%= Rails.application.credentials.dig(:db, :password) %>
