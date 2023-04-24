@@ -1,7 +1,8 @@
 # frozen_string_literal: true
 
 class ApplicationController < ActionController::Base
-  helper_method :logged_in?
+  before_action :authenticate
+  helper_method :logged_in?, :current_user
 
   private
 
@@ -11,5 +12,10 @@ class ApplicationController < ActionController::Base
 
   def current_user
     @current_user ||= User.find_by(id: session[:user_id]) if session[:user_id]
+  end
+
+  def authenticate
+    return if logged_in?
+    redirect_to root_path, notice: "ログインしてください"
   end
 end
