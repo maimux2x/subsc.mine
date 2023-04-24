@@ -11,7 +11,7 @@
     h1.font-semibold.text-xl Subsc.mineでサブスクリプションの管理をしよう！
 
 - @subscriptions.each do |subscription|
-  a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
+  .block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
     .my-10
       table.min-w-full.text-left.border.dark:border-zinc-950
         tbody.leading-10.text-sm.md:text-base
@@ -46,7 +46,9 @@
           = button_to '編集', edit_subscription_path(subscription), method: :get
         .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「 #{subscription.name} 」を削除します。よろしいですか?" }
-
+      .flex.justify-center
+        .mt-10.mr-5.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
+          = link_to 'Googleカレンダーに反映', google_calendar_url(subscription)
 .w-24.hover:text-blue-600.py-2.px-4.my-5.text-sm.md:text-base
   = link_to '退会', new_retirements_path, data: { turbo_frame: 'retirements' }
 .hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller="modal" data-modal-target="modal" data-action="turbo:frame-load->modal#open turbo:submit-end->modal#close"
