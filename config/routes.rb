@@ -5,6 +5,10 @@ Rails.application.routes.draw do
   get 'auth/failure', to: redirect('/')
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
+  resources :users do
+    resources :subscriptions, only: %i(index)
+  end
+  
   resource :retirements
   
   resources :users, only: %i(show)
@@ -16,9 +20,6 @@ Rails.application.routes.draw do
     resources :status, only: %i(edit update)
   end
   
-  resources :users do
-    resources :calendars, only: %i(index)
-  end
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
