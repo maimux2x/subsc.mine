@@ -64,6 +64,7 @@ group :development do
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
   gem 'slim_lint', require: false
+  gem 'pry-rails'
   # Add speed badges [https://github.com/MiniProfiler/rack-mini-profiler]
   # gem "rack-mini-profiler"
 
@@ -86,3 +87,4 @@ gem "dockerfile-rails", ">= 1.2", group: :development
 gem 'active_decorator'
 gem 'icalendar', '~> 2.8'
 gem 'tzinfo', '~> 2.0', '>= 2.0.6'
+gem 'rack-cors'

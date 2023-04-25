@@ -1,14 +1,13 @@
 # frozen_string_literal: true
 
-module Subscriptions
-  class CalendarsController < ApplicationController
-    # skip_before_action :require_active_user_login, raise: false, only: :index
+module Users
+  class SubscriptionsController < ApplicationController
+    skip_before_action :authenticate, raise: false, only: :index
 
     def index
       respond_to do |format|
         format.ics do
           calendar = SubscriptionsInIcalFormatExporter.export_subscriptions(set_export)
-
           calendar.publish
           render plain: calendar.to_ical
         end
@@ -18,7 +17,7 @@ module Subscriptions
     private
 
     def set_export
-      Subscription.where(subscribed: true)
+      Subscription.where(user_id: params[:user_id], subscribed: true)
     end
   end
 end
