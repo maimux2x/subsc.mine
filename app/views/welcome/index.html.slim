@@ -1,2 +1,8 @@
-.bg-blue-500.w-48.hover:bg-blue-700.text-white.font-bold.py-2.px-4.border.border-blue-700.rounded
-  = button_to "Googleアカウントでログイン", "/auth/google_oauth2/", data: { turbo: "false" }
+block.max-w
+  .max-w
+    h1.text-center.font-bold.text-zinc-500.md:text-2xl 次のお支払日いつだっけ？を解決する
+  .max-w
+    = image_tag 'logo2_4.png', class: 'm-auto w-6/12'
+  .mt-10.mb-10
+    .bg-blue-500.w-48.hover:bg-blue-700.text-white.font-bold.py-2.px-4.border.border-blue-700.rounded.m-auto
+      = button_to "Googleアカウントでログイン", "/auth/google_oauth2/", data: { turbo: "false" }
