@@ -6,7 +6,7 @@ Rails.application.routes.draw do
   get 'signout', to: 'sessions#destroy', as: 'signout'
 
   resources :users do
-    resources :subscriptions, only: %i(index)
+    resources :subscriptions, only: %i(index) ,controller: "users/subscriptions"
   end
   
   resource :retirements
