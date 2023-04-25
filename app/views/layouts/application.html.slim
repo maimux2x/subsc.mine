@@ -2,23 +2,26 @@ doctype html
 html
   head
     title
-      | SubscMine
+      | Subsc.Mine
     meta[name='viewport' content='width=device-width,initial-scale=1']
     = csrf_meta_tags
     = csp_meta_tag
     = stylesheet_link_tag 'tailwind', 'inter-font', 'data-turbo-track': 'reload', defer: true
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, nonce: true
-  body
-    nav.flex.justify-start.bg-teal-500.p-6
-      .flex.items-center.flex-shrink-0.text-white.mr-6
-        span.font-semibold.text-xl.tracking-tight Subsc.mine
-      .flex.items-center.flex-shrink-0.text-white.mr-6
+    = favicon_link_tag 'favicon.ico'
+  body.flex.flex-col.min-h-screen
+    nav.flex.justify-start.bg-stone-100.p-6.
+      .flex.items-center.flex-shrink-0.text-white.mr-6.align-middle
+        = link_to image_tag('logo2_1.png'), root_path, class: 'object-contain w-40 items-center'
+      .flex.items-center.flex-shrink-0.text-brown.mr-6.mt-2
         - if logged_in?
           = link_to 'ログアウト', signout_path, id: 'sign_out'
+        - else
+          = button_to 'ログイン', "/auth/google_oauth2/", data: { turbo: "false" }
     .container
       - if flash.notice.present?
         .alert.w-screen.bg-orange-100.border-l-4.border-orange-500.text-orange-700.p-4 = flash.notice
-    main.container.mx-auto.mt-28.px-5
+    main.container.mx-auto.mt-28.px-5.
       = yield
-    footer.footer.is-size-7
+    footer.is-size-7.mt-auto
         = render 'shared/footer'
