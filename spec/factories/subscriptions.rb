@@ -1,11 +1,13 @@
 FactoryBot.define do
   factory :subscription do
     user
+    from = Date.parse("2023/04/01")
+    to = Date.parse("2023/04/30")
     sequence(:name) { |i| "サブスクリプション名#{i}" }
-    sequence(:payment_date) { rand(1..30).days.from_now }
-    sequence(:fee) { 500 }
+    sequence(:payment_date) { Random.rand(from..to) }
+    sequence(:fee) { rand(0..1_000_000) }
     sequence(:my_account_url) { |i| "https://example.com/#{i}" }
     sequence(:subscribed) { true }
-    sequence(:cycle) { 1 }
+    sequence(:cycle) { [1, 2, 3, 6, 12].sample }
   end
 end
