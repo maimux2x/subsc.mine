@@ -7,7 +7,7 @@ FactoryBot.define do
     sequence(:payment_date) { Random.rand(from..to) }
     sequence(:fee) { rand(0..1_000_000) }
     sequence(:my_account_url) { |i| "https://example.com/#{i}" }
-    sequence(:subscribed) { true }
+    sequence(:subscribed) { [true, false].sample }
     sequence(:cycle) { [1, 2, 3, 6, 12].sample }
   end
 end
