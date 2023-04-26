@@ -1,4 +1,12 @@
 class Subscription < ApplicationRecord
+  validates :name, length: { maximum: 50 }, presence: true
+  validates :payment_date, presence: true
+  validates :fee, length: { maximum: 7 }, presence: true
+  validates :my_account_url, length: { maximum: 200 }
+  validates :subscribed, presence: true
+  validates :cycle, presence: true
+  validate :payment_date_before_this_month
+
   belongs_to :user
 
   def calc_next_payment_date
@@ -30,5 +38,13 @@ class Subscription < ApplicationRecord
       duration
     end
     duration
+  end
+
+  def payment_date_before_this_month
+    return if payment_date.blank?
+
+    return unless payment_date.month > Date.today.month
+
+    errors.add("お支払基準日は今月以前の直近の日付を指定してください。")
   end
 end
