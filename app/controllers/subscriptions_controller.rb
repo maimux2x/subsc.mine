@@ -14,9 +14,12 @@ class SubscriptionsController < ApplicationController
   end
 
   def create
-    subscription = current_user.subscriptions.new(subscription_params)
-    subscription.save!
-    redirect_to root_path, notice: "サブスクリプション「#{subscription.name}」を登録しました。"
+    @subscription = current_user.subscriptions.new(subscription_params)
+    if @subscription.save
+      redirect_to root_path, notice: "サブスクリプション「#{@subscription.name}」を登録しました。"
+    else
+      render :new, status: :unprocessable_entity
+    end
   end
 
   def edit; end
