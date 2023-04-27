@@ -25,8 +25,11 @@ class SubscriptionsController < ApplicationController
   def edit; end
 
   def update
-    @subscription.update!(subscription_params)
-    redirect_to root_path, notice: "サブスクリプション「#{@subscription.name}」を編集しました。"
+    if @subscription.update(subscription_params)
+      redirect_to root_path, notice: "サブスクリプション「#{@subscription.name}」を編集しました。"
+    else
+      render :edit, status: :unprocessable_entity
+    end
   end
 
   def destroy

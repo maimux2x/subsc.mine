@@ -1,8 +1,8 @@
 =form_with model: subscription do |f|
   - if subscription.errors.any?
-        ul.mt-5.bg-red-100.border.border-red-400.text-red-700.px-4.py-3.w-max.rounded
+        ul.my-5.bg-red-100.border.border-red-400.text-red-700.px-4.py-3.w-max.rounded
           - subscription.errors.full_messages.each do |message|
-            li.message-body.mt-3 = message
+            li.message-body.my-3 = message
   .my-5
     = f.label :name
     = f.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
