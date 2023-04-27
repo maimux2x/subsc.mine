@@ -39,6 +39,16 @@ RSpec.describe Subscription, type: :model do
     expect(subscription.errors[:fee]).to include('を入力してください')
   end
 
+  it 'my_account_url must be 200 characters or less' do
+    subscription = build(:subscription, my_account_url: "https://#{'a' * 192}")
+    subscription.valid?
+    expect(subscription.errors[:my_account_url]).not_to include('は200文字以内で入力してください')
+
+    long_url = build(:subscription, my_account_url: "https://#{'a' * 193}")
+    long_url.valid?
+    expect(long_url.errors[:my_account_url]).to include('は200文字以内で入力してください')
+  end
+
   it 'subscribed is blank and invalid data' do
     subscription = build(:subscription, subscribed: nil)
     subscription.valid?
