@@ -3,7 +3,7 @@
 class User < ApplicationRecord
   validates :uid, uniqueness: { scope: :provider }
 
-  has_many :subscriptions
+  has_many :subscriptions, dependent: :destroy
 
   def self.from_omniauth(auth_hash)
     provider = auth_hash[:provider]
