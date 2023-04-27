@@ -3,7 +3,7 @@ class Subscription < ApplicationRecord
   validates :payment_date, presence: true
   validates :fee, length: { maximum: 7 }, presence: true
   validates :my_account_url, length: { maximum: 200 }
-  validates :subscribed, presence: true
+  validates :subscribed, inclusion: { in: [true, false] }
   validates :cycle, presence: true
   validate :payment_date_before_this_month
 
