@@ -72,4 +72,94 @@ RSpec.describe Subscription, type: :model do
     subscription.valid?
     expect(subscription.errors[:payment_date]).to include('お支払基準日は今月以前の直近の日付を指定してください。')
   end
+
+  it 'the cycle is one month and the date one month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o4, 16) do
+      valid_payment_date = Date.parse('2023/04/15')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-05-15 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is one month and the payment_date is after tommorow and the date one month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o5, 16) do
+      valid_payment_date = Date.parse('2023/04/17')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-06-17 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is two month and the date two month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o4, 25) do
+      valid_payment_date = Date.parse('2023/04/10')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 2)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-06-10 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is three month and the date three month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o4, 0o1) do
+      valid_payment_date = Date.parse('2023/02/25')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 3)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-05-25 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is six month and the date six month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o4, 0o1) do
+      valid_payment_date = Date.parse('2022/12/15')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 6)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-06-15 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is twelve month and the date twelve month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 0o4, 0o1) do
+      valid_payment_date = Date.parse('2022/10/01')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-10-01 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is twelve month and the duration is 23 months and the date 23 month after the reference date is correct.' do
+    travel_to Time.zone.local(2023, 10, 0o1) do
+      valid_payment_date = Date.parse('2021/11/03')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2023-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is one month and the duration is 23 months and the date 23 month after the reference date is correct.' do
+    travel_to Time.zone.local(2024, 10, 0o4) do
+      valid_payment_date = Date.parse('2022/11/03')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2024-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
+
+  it 'the cycle is twelve month and the duration is 35 months and the date 35 month after the reference date is correct.' do
+    travel_to Time.zone.local(2024, 10, 0o1) do
+      valid_payment_date = Date.parse('2021/11/03')
+      subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
+      next_payment_date = subscription.calc_next_payment_date
+
+      expect("2024-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+    end
+  end
 end

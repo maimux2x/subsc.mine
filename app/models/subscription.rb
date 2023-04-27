@@ -29,7 +29,7 @@ class Subscription < ApplicationRecord
 
   def calc_duration
     # お支払基準日からの経過を本日との差分で算出
-    today = Date.today
+    today = Date.current
     # 年の経過の差分を算出
     year_duration = today.year - payment_date.year
     # 月の経過の差分を算出
@@ -37,10 +37,12 @@ class Subscription < ApplicationRecord
     # 年を月単位に変換し、合計の経過月数を算出
     duration = (year_duration * 12) + month_duration
 
-    if (today > payment_date || today < payment_date) && !duration.zero?
-      duration
-    elsif today > payment_date || duration.zero?
+    if today >= payment_date && cycle == 1
+      duration += 1
+    elsif duration.zero?
       duration = cycle
+    else
+      duration
     end
     duration
   end
@@ -48,7 +50,7 @@ class Subscription < ApplicationRecord
   def payment_date_before_this_month
     return if payment_date.blank?
 
-    return unless payment_date.year >= Date.today.year && payment_date.month > Date.today.month
+    return unless payment_date.year >= Date.current.year && payment_date.month > Date.current.month
 
     errors.add(:payment_date, "お支払基準日は今月以前の直近の日付を指定してください。")
   end
