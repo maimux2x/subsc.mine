@@ -7,7 +7,7 @@ class Subscription < ApplicationRecord
   validates :cycle, presence: true
   validate :payment_date_before_this_month
 
-  belongs_to :user, dependent: :destroy
+  belongs_to :user
 
   def calc_next_payment_date
     duration = calc_duration
