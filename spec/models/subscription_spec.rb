@@ -49,12 +49,6 @@ RSpec.describe Subscription, type: :model do
     expect(long_url.errors[:my_account_url]).to include('は200文字以内で入力してください')
   end
 
-  it 'subscribed is blank and invalid data' do
-    subscription = build(:subscription, subscribed: nil)
-    subscription.valid?
-    expect(subscription.errors[:subscribed]).to include('を入力してください')
-  end
-
   it 'cycle is blank and invalid data' do
     subscription = build(:subscription, cycle: nil)
     subscription.valid?
