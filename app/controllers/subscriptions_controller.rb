@@ -4,7 +4,7 @@ class SubscriptionsController < ApplicationController
   before_action :set_subscription, only: %i[edit update destroy]
 
   def index
-    @subscriptions = current_user.subscriptions
+    @subscriptions = current_user.subscriptions.order(created_at: :DESC)
   end
 
   def show; end
