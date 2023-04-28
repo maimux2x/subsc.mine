@@ -1,12 +1,7 @@
 =form_with model: subscription, local: true do |f|
-  - if @subscription.errors.any?
-      #error_explanation.message.is-light
-        ul
-          - subscription.errors.full_messages.each do |message|
-            li.message-body = message
   .my-5
-    = f.label :subscribed
-    = f.select :subscribed, [['停止中', false], ['継続中', true]], { include_blank: true, selected: true }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
+    = f.label :subscribed, id: "subscription_subscribed"
+    = f.select :subscribed, [['停止中', false], ['継続中', true]], { include_blank: true, selected: true }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24"
   - unless @subscription.subscribed
     .my-5
       = f.label :payment_date
