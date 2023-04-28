@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
   root to: 'welcome#index'
+  get 'tos', to: 'welcome#tos', as: 'tos'
+  get 'privacy_policy', to: 'welcome#privacy_policy', as: 'privacy_policy'
 
   get 'auth/:provider/callback', to: 'sessions#create'
   get 'auth/failure', to: redirect('/')

@@ -6,4 +6,8 @@ class WelcomeController < ApplicationController
   def index
     redirect_to subscriptions_path if logged_in?
   end
+
+  def tos; end
+
+  def privacy_policy; end
 end
