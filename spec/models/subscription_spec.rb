@@ -75,7 +75,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-05-15 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-05-15 00:00:00 +0900"
     end
   end
 
@@ -85,7 +85,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-06-17 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-06-17 00:00:00 +0900"
     end
   end
 
@@ -95,7 +95,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 2)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-06-10 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-06-10 00:00:00 +0900"
     end
   end
 
@@ -105,7 +105,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 3)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-05-25 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-05-25 00:00:00 +0900"
     end
   end
 
@@ -115,7 +115,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 6)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-06-15 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-06-15 00:00:00 +0900"
     end
   end
 
@@ -125,7 +125,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-10-01 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-10-01 00:00:00 +0900"
     end
   end
 
@@ -135,7 +135,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2023-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2023-11-03 00:00:00 +0900"
     end
   end
 
@@ -145,7 +145,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 1)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2024-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2024-11-03 00:00:00 +0900"
     end
   end
 
@@ -155,7 +155,7 @@ RSpec.describe Subscription, type: :model do
       subscription = build(:subscription, payment_date: valid_payment_date, cycle: 12)
       next_payment_date = subscription.calc_next_payment_date
 
-      expect("2024-11-03 00:00:00 +0900").to eq next_payment_date.to_s
+      expect(next_payment_date.to_s).to eq "2024-11-03 00:00:00 +0900"
     end
   end
 end
