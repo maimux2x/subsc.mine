@@ -11,7 +11,7 @@ ja:
     attributes:
       subscription:
         name: サービス名
-        payment_date: お支払日
+        payment_date: お支払基準日
         fee: お支払金額
         my_account_url: マイアカウント
         subscribed: ステータス
