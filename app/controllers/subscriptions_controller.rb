@@ -36,7 +36,7 @@ class SubscriptionsController < ApplicationController
     @subscription.destroy
 
     respond_to do |format|
-      format.html { redirect_to root_path, notice: "サブスクリプション「#{@subscription.name}を削除しました", status: :see_other }
+      format.html { redirect_to root_path, notice: "サブスクリプション「#{@subscription.name}」を削除しました", status: :see_other }
     end
   end
 
