@@ -108,6 +108,7 @@ GEM
       faraday-net_http (>= 2.0, < 3.1)
       ruby2_keywords (>= 0.0.4)
     faraday-net_http (3.0.2)
+    foreman (0.87.2)
     globalid (1.1.0)
       activesupport (>= 5.0)
     hashie (5.0.0)
@@ -350,6 +351,7 @@ DEPENDENCIES
   dockerfile-rails (>= 1.2)
   dotenv-rails
   factory_bot_rails
+  foreman
   html2slim
   icalendar (~> 2.8)
   jbuilder
