@@ -51,6 +51,7 @@ Subsc.mineは複数のサブスクリプションサービスを契約してい�
 
 Googleカレンダーと連携する場合は連携用のURLをコピーして、「他のカレンダー > + マーク > URLで追加」から連携が可能です。
 ※Googleカレンダーとの連携はPCからのみ操作ができます。
+
 <img width="25%" alt="カレンダー連携5" src="https://user-images.githubusercontent.com/76797372/235335030-7eb9b69d-7284-43e3-ac9b-aa83da8e5ebc.png">
 
 
