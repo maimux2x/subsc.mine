@@ -10,13 +10,13 @@
     = turbo_frame_tag "calendar"
 
 - if @subscriptions.blank?
-  a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
+  a.block.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
     h1.font-semibold.text-xl Subsc.mineでサブスクリプションの管理をしよう！
 
 - @subscriptions.each do |subscription|
-  a.block.max-w.my-5.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100.dark:bg-gray-800.dark:border-gray-700.dark:hover:bg-gray-700
+  a.block.max-w.my-5.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
     .my-10
-      table.bg-white.min-w-full.text-left.border.dark:border-zinc-950
+      table.bg-white.min-w-full.text-left.border
         tbody.leading-10.text-sm.md:text-base
             tr.border-b
               th = Subscription.human_attribute_name(:name)
