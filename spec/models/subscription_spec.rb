@@ -58,15 +58,17 @@ RSpec.describe Subscription, type: :model do
   end
 
   it 'payment date after this month is invalid' do
-    valid_payment_date = Date.parse('2023/04/30')
-    subscription = build(:subscription, payment_date: valid_payment_date)
-    subscription.valid?
-    expect(subscription.errors[:payment_date]).not_to include('お支払基準日は今月以前の直近の日付を指定してください。')
+    travel_to Time.zone.local(2023, 0o4, 16) do
+      valid_payment_date = Date.parse('2023/04/30')
+      subscription = build(:subscription, payment_date: valid_payment_date)
+      subscription.valid?
+      expect(subscription.errors[:payment_date]).not_to include('お支払基準日は今月以前の直近の日付を指定してください。')
 
-    invalid_payment_date = Date.parse('2023/05/01')
-    subscription = build(:subscription, payment_date: invalid_payment_date)
-    subscription.valid?
-    expect(subscription.errors[:payment_date]).to include('お支払基準日は今月以前の直近の日付を指定してください。')
+      invalid_payment_date = Date.parse('2023/05/01')
+      subscription = build(:subscription, payment_date: invalid_payment_date)
+      subscription.valid?
+      expect(subscription.errors[:payment_date]).to include('お支払基準日は今月以前の直近の日付を指定してください。')
+    end
   end
 
   it 'the cycle is one month and the date one month after the reference date is correct.' do
