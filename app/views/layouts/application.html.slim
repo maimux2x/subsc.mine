@@ -10,18 +10,18 @@ html
     = javascript_include_tag 'application', 'data-turbo-track': 'reload', defer: true, nonce: true
     = favicon_link_tag 'favicon.ico'
   body.flex.flex-col.min-h-screen
-    nav.nav-link.flex.justify-start.bg-stone-100.p-6.
-      .flex.items-center.flex-shrink-0.text-white.mr-6.align-middle
+    nav.nav-link.flex.justify-between.bg-stone-100.p-2.
+      .flex.flex-shrink-0.text-white.mx-6.align-middle
         = link_to image_tag('logo2_1.png'), root_path, class: 'object-contain w-40 items-center'
-      .flex.items-center.flex-shrink-0.text-brown.mr-6.mt-2
+      .flex.flex-shrink-0.text-brown.mx-6.align-middle
         - if logged_in?
           = link_to 'ログアウト', signout_path, id: 'sign_out'
         - else
           = button_to 'ログイン', "/auth/google_oauth2/", data: { turbo: "false" }
     .container
       - if flash.notice.present?
-        .notification.w-screen.bg-orange-100.border-l-4.border-orange-500.text-orange-700.p-4 = flash.notice
-    main.container.mx-auto.mt-28.px-5.
+        .notification.w-screen.bg-cyan-100.border-l-4.border-cyan-500.text-cyan-700.p-4 = flash.notice
+    main.container.mx-auto.my-10.px-5.
       = yield
     footer.is-size-7.mt-auto
         = render 'shared/footer'
