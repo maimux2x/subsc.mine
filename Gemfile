@@ -1,7 +1,7 @@
 source "https://rubygems.org"
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
-ruby "3.1.0"
+ruby "3.1.2"
 
 # Bundle edge Rails instead: gem "rails", github: "rails/rails", branch: "main"
 gem "rails", "~> 7.0.4", ">= 7.0.4.3"
@@ -88,3 +88,4 @@ gem 'active_decorator'
 gem 'icalendar', '~> 2.8'
 gem 'tzinfo', '~> 2.0', '>= 2.0.6'
 gem 'rack-cors'
+gem 'foreman'
