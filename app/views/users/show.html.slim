@@ -6,7 +6,7 @@
     li.list-disc.my-1 ご利用のOSやアプリによってiCalendarの連携が動作しない場合があります。その場合はPCのGoogleカレンダーから連携をお試しください。
   .flex.flex-initial.flex-wrap
     .flex.items-center.flex-shrink-0.mr-10
-      = link_to 'カレンダーと連携する', user_subscriptions_url(protocol: :webcal, format: :ics, user_id: @user_id),
+      = link_to 'カレンダーと連携する', user_subscriptions_url(protocol: :webcal, format: :ics, user_id: current_user),
         class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-5'
     .flex.items-center.flex-shrink-0.mr-10
       = button_to '戻る', subscriptions_path, method: :get, data: { turbo: 'false' },
