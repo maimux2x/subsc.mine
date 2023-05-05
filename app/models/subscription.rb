@@ -17,13 +17,12 @@ class Subscription < ApplicationRecord
     if (duration % cycle).zero?
       # 経過月数と周期の余りが0の場合は経過月数で次回お支払日を算出
       payment_date.since(duration.month)
-    elsif duration < cycle
-      # 経過月数が周期未満だったら周期で次回お支払日を算出
-      payment_date.since(cycle.month)
     elsif duration > cycle
       # 経過月数が周期より大きかったら経過月数と周期を割った切り上げ結果に周期をかけて次回お支払日を算出
       duration = (duration.to_f / cycle).ceil
       payment_date.since((duration * cycle).month)
+    else
+      payment_date.since(cycle.month)
     end
   end
 
