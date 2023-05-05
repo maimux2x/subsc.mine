@@ -23,9 +23,6 @@ Rails.application.routes.draw do
     resources :status, only: %i(edit update)
   end
 
-  get '*not_found' => 'application#routing_error'
-  post '*not_found' => 'application#routing_error'
-
   # Define your application routes per the DSL in https://guides.rubyonrails.org/routing.html
 
   # Defines the root path route ("/")
