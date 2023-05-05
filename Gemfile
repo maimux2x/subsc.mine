@@ -61,7 +61,6 @@ end
 
 group :development do
   # Use console on exceptions pages [https://github.com/rails/web-console]
-  gem 'pry-rails'
   gem 'rubocop', require: false
   gem 'rubocop-performance', require: false
   gem 'rubocop-rails', require: false
@@ -90,5 +89,4 @@ gem 'dockerfile-rails', '>= 1.2', group: :development
 gem 'foreman'
 gem 'icalendar', '~> 2.8'
 gem 'meta-tags'
-gem 'rack-cors'
 gem 'tzinfo', '~> 2.0', '>= 2.0.6'
