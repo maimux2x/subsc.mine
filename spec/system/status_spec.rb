@@ -7,7 +7,9 @@ RSpec.describe 'Status', type: :system do
   let(:other_user) { create(:user) }
   describe 'subscription edit screen' do
     let!(:users_subscription) { create(:subscription, name: '継続から停止に変更するサブスク', subscribed: true, user:) }
-    let!(:other_users_subscription) { create(:subscription, name: '停止から継続に変更するサブスク', subscribed: false, user: other_user) }
+    let!(:other_users_subscription) do
+      create(:subscription, name: '停止から継続に変更するサブスク', subscribed: false, user: other_user)
+    end
 
     context 'change status ongoing to standstill' do
       it 'user can edit subscription', js: true do

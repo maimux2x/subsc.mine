@@ -17,7 +17,7 @@ html
         - if logged_in?
           = link_to 'ログアウト', signout_path, id: 'sign_out'
         - else
-          = button_to 'ログイン', "/auth/google_oauth2/", data: { turbo: "false" }
+          = button_to 'ログイン', '/auth/google_oauth2/', data: { turbo: 'false' }
     .container
       - if flash.notice.present?
         .notification.w-screen.bg-cyan-100.border-l-4.border-cyan-500.text-cyan-700.p-4 = flash.notice

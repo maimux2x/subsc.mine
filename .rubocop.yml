@@ -1,4 +1,7 @@
 inherit_from: .rubocop_todo.yml
+Layout/LineLength:
+  Max: 198
+
 Metrics/BlockLength:
   Exclude:
     - spec/**/*

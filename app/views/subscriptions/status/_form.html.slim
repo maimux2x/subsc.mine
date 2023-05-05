@@ -1,12 +1,12 @@
 =form_with model: subscription, local: true do |f|
   .my-5
-    = f.label :subscribed, id: "subscription_subscribed"
-    = f.select :subscribed, [['停止中', false], ['継続中', true]], { include_blank: true, selected: true }, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24"
+    = f.label :subscribed, id: 'subscription_subscribed'
+    = f.select :subscribed, [['停止中', false], ['継続中', true]], { include_blank: true, selected: true }, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24'
   - unless @subscription.subscribed
     .my-5
       = f.label :payment_date
-      = f.date_field :payment_date, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2"
-  = f.submit nil, data: { turbo: "false" }, class: "bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-5 rounded"
+      = f.date_field :payment_date, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
+  = f.submit nil, data: { turbo: 'false' }, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-5 rounded'
 
-= button_to 'キャンセル', subscriptions_path, method: :get, data: { turbo: "false" },
+= button_to 'キャンセル', subscriptions_path, method: :get, data: { turbo: 'false' },
 class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mt-5 rounded'
