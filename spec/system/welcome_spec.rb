@@ -2,7 +2,7 @@
 
 require 'rails_helper'
 
-RSpec.describe "Welcome", type: :system do
+RSpec.describe 'Welcome', type: :system do
   let(:user) { FactoryBot.create(:user) }
 
   it 'user can login' do

@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 module Subscriptions
   class StatusController < ApplicationController
     before_action :set_subscription, only: %i[edit update]

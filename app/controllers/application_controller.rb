@@ -29,7 +29,7 @@ class ApplicationController < ActionController::Base
   def authenticate
     return if logged_in?
 
-    redirect_to root_path, notice: "ログインしてください"
+    redirect_to root_path, notice: 'ログインしてください'
   end
 
   def _render404(err = nil)

@@ -8,7 +8,7 @@ module SignInHelper
       uid: user.uid
     )
     visit root_path
-    click_on "Googleアカウントでログイン"
+    click_on 'Googleアカウントでログイン'
     @current_user = user
   end
 

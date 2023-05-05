@@ -1,8 +1,10 @@
+# frozen_string_literal: true
+
 FactoryBot.define do
   factory :subscription do
     user
-    from = Date.parse("2023/04/01")
-    to = Date.parse("2023/04/30")
+    from = Date.parse('2023/04/01')
+    to = Date.parse('2023/04/30')
     sequence(:name) { |i| "サブスクリプション名#{i}" }
     sequence(:payment_date) { Random.rand(from..to) }
     sequence(:fee) { rand(0..1_000_000) }

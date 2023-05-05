@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Subscription < ApplicationRecord
   validates :name, length: { maximum: 50 }, presence: true
   validates :payment_date, presence: true
@@ -52,6 +54,6 @@ class Subscription < ApplicationRecord
 
     return unless payment_date.year >= Date.current.year && payment_date.month > Date.current.month
 
-    errors.add(:payment_date, "お支払基準日は今月以前の直近の日付を指定してください。")
+    errors.add(:payment_date, 'お支払基準日は今月以前の直近の日付を指定してください。')
   end
 end
