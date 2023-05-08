@@ -5,8 +5,7 @@ module Users
     skip_before_action :authenticate, raise: false, only: :index
 
     def index
-      @calendar = SubscriptionsInIcalFormatExporter.export_subscriptions(set_export)
-      @calendar.publish
+      @subscriptions = set_export
     end
 
     private
