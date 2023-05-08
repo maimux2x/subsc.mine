@@ -22,6 +22,6 @@ class User < ApplicationRecord
     return unless id_digest.nil?
 
     new_digest = Digest::MD5.hexdigest(id.to_s)
-    update_attribute(:id_digest, new_digest)
+    update_column(:id_digest, new_digest)
   end
 end

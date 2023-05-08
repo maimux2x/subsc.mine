@@ -12,8 +12,8 @@ module Users
     private
 
     def set_export
-      user = User.find_by(id_digest: params[:user_id])
-      Subscription.where(user_id: user.id, subscribed: true)
+      user = User.find_by!(id_digest: params[:user_id])
+      user.subscriptions.where(subscribed: true)
     end
   end
 end
