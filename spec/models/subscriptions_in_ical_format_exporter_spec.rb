@@ -10,7 +10,7 @@ RSpec.describe SubscriptionsInIcalFormatExporter, type: :model do
       create(:subscription, user:, name: '継続中のデータ', subscribed: true)
       create(:subscription, user:, name: '停止中のデータ', subscribed: false)
       create(:subscription, user: other_user, name: '別ユーザーのデータ', subscribed: true)
-      subscriptions = Subscription.where(user_id: user.id, subscribed: true)
+      subscriptions = user.subscriptions.where(subscribed: true)
 
       calendar = SubscriptionsInIcalFormatExporter.export_subscriptions(subscriptions)
       calendar.publish
