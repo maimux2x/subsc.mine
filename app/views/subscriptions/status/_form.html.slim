@@ -4,9 +4,9 @@
     = f.select :subscribed, [['停止中', false], ['継続中', true]], { selected: true },
         class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full'
   - unless @subscription.subscribed
-    .my-5.flex.justify-between
+    .my-5
       = f.label :payment_date
-      = f.date_field :payment_date, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
+      = f.date_field :payment_date, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full'
   .text-center.mt-5
     = f.submit nil, data: { turbo: 'false' }, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 mr-5 rounded w-full'
 

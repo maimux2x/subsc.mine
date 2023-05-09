@@ -1,65 +1,65 @@
-block.m-auto
+.md:w-6/12.m-auto
   .w-fill
-    .section.text-center
+    .section.text-left
       h1.font-bold.md:text-2xl サービスガイド
       h2.my-5.font-bold.md:text-2xl Subsc.mineについて
-      p.my-3.text-xs.md:text-base  Subsc.mineは複数のサブスクリプションサービスを契約している人向けの、利用サブスク一覧ツールです。
-      p.my-3.text-xs.md:text-base  利用しているサブスクと更新日を一覧画面で確認することができ、自動でカレンダーアプリに更新日を連携することが可能です。
-    .section.text-center
+      p.my-3.text-xs.md:text-base  Subsc.mineは複数のサブスクリプションサービスを契約している人向けの、利用サブスク一覧ツールです
+      p.my-3.text-xs.md:text-base  利用しているサブスクと更新日を一覧画面で確認することができ、自動でカレンダーアプリに更新日を連携することが可能です
+    .section.text-left
         h2.my-5.font-bold.md:text-2xl 特徴
         p.my-3.text-xs.md:text-base  「サービス名」「支払基準日」「金額」「ステータス」「周期」を登録し、一覧画面で確認が可能です
         p.my-3.text-xs.md:text-base  お支払基準日から次回お支払日を本日を起点に自動で計算します
         p.my-3.text-xs.md:text-base  iCalendar形式でカレンダーアプリと連携が可能です
         p.my-3.text-xs.md:text-base  一時的にサブスクの利用を止める場合、ステータスを「停止」に変更し、カレンダー連携から除外できます
         p.my-3.text-xs.md:text-base  停止から再開する場合、新しいお支払基準日を設定すると改めて次回お支払日を算出しカレンダーと連携できます
-    .section.text-center
-        h2.my-5.font-bold.text-zinc-500.md:text-2xl 使い方
+    .section.text-left
+        h2.my-5.font-bold.md:text-2xl 使い方
         h3.my-5.font-bold.md:text-2xl 1. Googleアカウントでログインする
         .max-w
-        = image_tag 'login.png', class: 'm-auto md:w-4/12'
-    .section.text-center
+        = image_tag 'login.png', class: 'md:w-4/12'
+    .section.text-left
       h3.my-5.font-bold.md:text-2xl 2. 新規登録画面から必要情報を入力して保存する
       .max-w
-      = image_tag 'form.png', class: 'm-auto md:w-3/12'
-    .section.text-center
+      = image_tag 'form.png', class: 'md:w-3/12'
+    .section.text-left
       h3.my-5.font-bold.md:text-2xl 3. 一覧画面にデータが反映される
       .max-w
-      = image_tag 'index.png', class: 'm-auto md:w-4/12'
-      p.my-3.text-xs.md:text-base  マイアカウントURLをクリックすると別タブで該当のリンクに飛ぶことができます。
-    .section.text-center
+      = image_tag 'index.png', class: 'md:w-4/12'
+      p.my-3.text-xs.md:text-base  マイアカウントURLをクリックすると別タブで該当のリンクに飛ぶことができます
+    .section.text-left
       h3.my-5.font-bold.md:text-2xl 4. カレンダーと連携する
       .max-w
-      = image_tag 'calendar_1.png', class: 'm-auto md:w-4/12'
+      = image_tag 'calendar_1.png', class: 'md:w-4/12'
 
-      p.my-3.text-xs.md:text-base  カレンダー連携ボタンをクリックします。
-
-      .max-w
-      = image_tag 'calendar_2.png', class: 'm-auto md:w-4/12'
-
-      p.my-3.text-xs.md:text-base  連携の説明が表示されるため、「カレンダーと連携する」をクリックします。
+      p.my-3.text-xs.md:text-base  カレンダー連携ボタンをクリックします
 
       .max-w
-      = image_tag 'calendar_3.png', class: 'm-auto md:w-4/12'
+      = image_tag 'calendar_2.png', class: 'md:w-4/12'
 
-      p.my-3.text-xs.md:text-base  連携用のURLが発行されるため「照会」をクリックします。
-
-      .max-w
-      = image_tag 'calendar_4.png', class: 'm-auto md:w-4/12'
-
-      p.my-3.text-xs.md:text-base  連携用の名前や更新間隔を設定して保存します。
-
-      p.my-3.text-xs.md:text-base  Googleカレンダーと連携する場合は連携用のURLをコピーして、「他のカレンダー > + マーク > URLで追加」から連携が可能です。
-      p.my-3.text-xs.md:text-base  ※Googleカレンダーとの連携はPCからのみ操作ができます。
+      p.my-3.text-xs.md:text-base  連携の説明が表示されるため、「カレンダーと連携する」をクリックします
 
       .max-w
-      = image_tag 'calendar_5.png', class: 'm-auto md:w-4/12'
+      = image_tag 'calendar_3.png', class: 'md:w-4/12'
 
-      p.my-3.text-xs.md:text-base  このカレンダー連携操作は一度URLをカレンダーと連携するのみで、それ以降は新規データの登録をSubsc.mine上で行っていただくと自動で次回お支払日が連携されます。
-    .section.text-center
-      h3.text-center.my-5.font-bold.md:text-2xl カレンダー連携がうまくいかない場合は？
-      p.my-3.text-xs.md:text-base  PCからSubsc.mineにログインしてカレンダー連携を再度お試しください。
-      p.my-3.text-xs.md:text-base  連携用のURLが表示されるため、Googleカレンダーの「他のカレンダー > +マーク > URLで追加」の順で連携の設定をします。
-    .section.text-center
-      h3.text-center.my-5.font-bold.md:text-2xl カレンダーの更新タイミングは？
-      p.my-3.text-xs.md:text-base  Googleカレンダーは1日1度程度実行されます。
-      p.my-3.text-xs.md:text-base  Googleカレンダー以外のカレンダーアプリの場合は、アプリ側で更新タイミングの設定をご確認ください。
+      p.my-3.text-xs.md:text-base  連携用のURLが発行されるため「照会」をクリックします
+
+      .max-w
+      = image_tag 'calendar_4.png', class: 'md:w-4/12'
+
+      p.my-3.text-xs.md:text-base  連携用の名前や更新間隔を設定して保存します
+
+      p.my-3.text-xs.md:text-base  Googleカレンダーと連携する場合は連携用のURLをコピーして、「他のカレンダー > + マーク > URLで追加」から連携が可能です
+      p.my-3.text-xs.md:text-base  ※Googleカレンダーとの連携はPCからのみ操作ができます
+
+      .max-w
+      = image_tag 'calendar_5.png', class: 'md:w-4/12'
+
+      p.my-3.text-xs.md:text-base  このカレンダー連携操作は一度URLをカレンダーと連携するのみで、それ以降は新規データの登録をSubsc.mine上で行っていただくと自動で次回お支払日が連携されます
+    .section.text-left
+      h3.text-left.my-5.font-bold.md:text-2xl カレンダー連携がうまくいかない場合は？
+      p.my-3.text-xs.md:text-base  PCからSubsc.mineにログインしてカレンダー連携を再度お試しください
+      p.my-3.text-xs.md:text-base  連携用のURLが表示されるため、Googleカレンダーの「他のカレンダー > +マーク > URLで追加」の順で連携の設定をします
+    .section.text-left
+      h3.text-left.my-5.font-bold.md:text-2xl カレンダーの更新タイミングは？
+      p.my-3.text-xs.md:text-base  Googleカレンダーは1日1度程度実行されます
+      p.my-3.text-xs.md:text-base  Googleカレンダー以外のカレンダーアプリの場合は、アプリ側で更新タイミングの設定をご確認ください
