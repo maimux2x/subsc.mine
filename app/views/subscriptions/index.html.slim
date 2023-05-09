@@ -1,10 +1,11 @@
-.flex.justify-center
-  - if @subscriptions.present?
-    .flex.items-center.flex-shrink-0.mx-5
-      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+- if @subscriptions.present?
+  h1.font-semibold.mb-5.text-zinc-500.text-xl.text-center サブスクリプション一覧
+  .flex.justify-center
+    .flex.text-center.flex-shrink-0.mx-5
+      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.w-40.rounded
           = button_to '新規登録', new_subscription_path, method: :get
-    .flex.items-center.flex-shrink-0
-      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+    .flex.text-center.flex-shrink-0.mx-5
+      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.w-40.rounded
           = button_to 'カレンダー連携', user_path(current_user), method: :get, data: { turbo_frame: 'calendar' }
     .hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
       .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
@@ -24,46 +25,40 @@
       .underline.text-xs.md:text-base
         = link_to help_path
           | サービスの詳しい使い方はこちら
-
-- @subscriptions.each do |subscription|
-  a.block.max-w.my-5.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
-    .my-10
-      table.bg-white.min-w-full.text-left.border
-        tbody.leading-10.text-sm.md:text-base
-            tr.border-b
-              th = Subscription.human_attribute_name(:name)
-              td = subscription.name
-            tr.border-b
-              th = Subscription.human_attribute_name(:payment_date)
-              td = subscription.payment_date
-            tr.border-b
-              th = '次回お支払日'
-              td = I18n.l subscription.calc_next_payment_date, format: :short
-            tr.border-b
-              th = Subscription.human_attribute_name(:fee)
-              td = "#{subscription.fee}円"
-            tr.border-b
-              th = Subscription.human_attribute_name(:my_account_url)
-              td = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: 'noopener noreferrer'
-            tr.border-b
-              th = Subscription.human_attribute_name(:subscribed)
-              td = subscription.subscribed_status
-            tr.border-b
-              th = Subscription.human_attribute_name(:cycle)
-              td = "#{subscription.cycle}ヶ月毎"
-      .flex.justify-center
-        .mt-10.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
-          = button_to 'ステータス変更', edit_subscriptions_status_path(subscription), method: :get, data: { turbo_frame: 'status' }
-        .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
-          .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-max.h-max.bg-white.p-10
-            = turbo_frame_tag 'status'
-        .mt-10.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
-          = button_to '編集', edit_subscription_path(subscription), method: :get
-        .mt-10.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
-          = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「#{subscription.name}」を削除します。よろしいですか?" }
-
-.w-24.hover:text-blue-600.py-2.px-4.mt-20.text-xs.md:text-base
-  = link_to '退会する', new_retirements_path, data: { turbo_frame: 'retirements' }
-.hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
-  .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
-    = turbo_frame_tag 'retirements'
+.my-5
+  - @subscriptions.each do |subscription|
+    a.block.md:w-7/12.m-auto.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
+      .my-2
+        table.bg-white.min-w-full.text-left.border
+          tbody.leading-10.text-sm.md:text-base
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:name)
+                td.px-3 = subscription.name
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:payment_date)
+                td.px-3 = subscription.payment_date
+              tr.border-b
+                th.px-3 = '次回お支払日'
+                td.px-3 = I18n.l subscription.calc_next_payment_date, format: :short
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:fee)
+                td.px-3 = "#{subscription.fee}円"
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:my_account_url)
+                td.px-3 = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: 'noopener noreferrer'
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:subscribed)
+                td.px-3 = subscription.subscribed_status
+              tr.border-b
+                th.px-3 = Subscription.human_attribute_name(:cycle)
+                td.px-3 = "#{subscription.cycle}ヶ月毎"
+        .flex.justify-center
+          .mt-5.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
+            = button_to 'ステータス変更', edit_subscriptions_status_path(subscription), method: :get, data: { turbo_frame: 'status' }
+          .hidden.fixed.m-auto.w-screen.h-screen.top-0.left-0.bg-gray-700/50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
+            .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-max.h-max.bg-white.p-10
+              = turbo_frame_tag 'status'
+          .mt-5.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
+            = button_to '編集', edit_subscription_path(subscription), method: :get
+          .mt-5.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
+            = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「#{subscription.name}」を削除します。よろしいですか?" }
