@@ -1,8 +1,8 @@
 .flex.justify-center
-  .flex.items-center.flex-shrink-0.mx-5
-    .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
-        = button_to '新規登録', new_subscription_path, method: :get
   - if @subscriptions.present?
+    .flex.items-center.flex-shrink-0.mx-5
+      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
+          = button_to '新規登録', new_subscription_path, method: :get
     .flex.items-center.flex-shrink-0
       .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.rounded
           = button_to 'カレンダー連携', user_path(current_user), method: :get, data: { turbo_frame: 'calendar' }
@@ -11,22 +11,19 @@
         = turbo_frame_tag 'calendar'
 
 - if @subscriptions.blank?
-  .block.text-center.max-w.my-5.p-6.bg-white.border.border-gray-200.rounded-lg
-    .max-w
-    = image_tag 'logo2_3.png', class: 'm-auto'
-    h1.mt-4.font-semibold.md:text-2xl Subsc.mineでサブスクリプションの管理をしよう！
-    ul.my-4
-      li.mb-6
-        | まずは「新規登録」ボタンからあなたが利用中のサブスクリプションを登録しましょう
-      li.mb-6
-        | 登録したサブスクリプションのお支払い基準日と周期から次回お支払い日を自動計算します
-      li.mb-6
-        | サブスクリプションを登録したら「カレンダー連携」ボタンからカレンダーアプリと次回お支払日の同期が可能になります
-      li.mb-6
-        | カレンダー連携はサブスクリプションのステータスが継続中のものが対象です
-      li.mr-6.underline
+    .m-auto.text-center
+      .md:w-9/12
+      = image_tag 'logo2_3.png', class: 'm-auto'
+      h1.my-5.font-bold.text-zinc-500.text-sm.md:text-2xl Subsc.mineでサブスクリプションの管理をしよう！
+      p.mt-3.mb-8.text-xs.md:text-base まずは「新規登録」ボタンからあなたが利用中の<br>サブスクリプションを登録しましょう
+      .bg-blue-500.text-sm.md:text-base.hover:bg-blue-700.text-white.font-bold.py-2.px-4.m-auto.rounded.w-fit
+        = button_to 'サブスクリプションを新規登録', new_subscription_path, method: :get
+      p.mt-8.mb-4.text-xs.md:text-base 登録したサブスクリプションのお支払い基準日と周期から<br>次回お支払い日を自動計算します
+      p.my-4.text-xs.md:text-base サブスクリプションを登録したら「カレンダー連携」ボタンから<br>カレンダーアプリと次回お支払日の同期が可能になります
+      p.my-4.text-xs.md:text-base カレンダー連携はサブスクリプションのステータスが<br>継続中のものが対象です
+      .underline.text-xs.md:text-base
         = link_to help_path
-          | サービスガイド
+          | サービスの詳しい使い方はこちら
 
 - @subscriptions.each do |subscription|
   a.block.max-w.my-5.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
@@ -64,9 +61,9 @@
           = button_to '編集', edit_subscription_path(subscription), method: :get
         .mt-10.mx-2.text-sm.md:text-base.flex-wrap.bg-blue-500.hover:bg-blue-700.text-white.font-bold.py-2.px-2.rounded
           = button_to '削除', subscription, method: :delete, data: { turbo_confirm: "サブスクリプション「#{subscription.name}」を削除します。よろしいですか?" }
-.absolute.bottom-15.left-25.top-15.raight-0
-  .w-24.hover:text-blue-600.py-2.px-4.text-sm.md:text-base
-    = link_to '退会する', new_retirements_path, data: { turbo_frame: 'retirements' }
-  .hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
-    .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
-      = turbo_frame_tag 'retirements'
+
+.w-24.hover:text-blue-600.py-2.px-4.mt-20.text-xs.md:text-base
+  = link_to '退会する', new_retirements_path, data: { turbo_frame: 'retirements' }
+.hidden.fixed.overlay.top-0.left-0.w-screen.h-screen.bg-gray-700.bg-opacity-50.z-10 data-controller='modal' data-modal-target='modal' data-action='turbo:frame-load->modal#open turbo:submit-end->modal#close'
+  .absolute.top-1/2.left-1/2.-translate-x-1/2.-translate-y-1/2.w-full.sm:w-max.sm:h-max.bg-white.p-10
+    = turbo_frame_tag 'retirements'
