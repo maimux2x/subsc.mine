@@ -25,8 +25,8 @@
       .underline.text-xs.md:text-base
         = link_to help_path
           | サービスの詳しい使い方はこちら
-.my-5
-  - @subscriptions.each do |subscription|
+- @subscriptions.each do |subscription|
+  .my-5
     a.block.md:w-7/12.m-auto.p-6.bg-slate-50.border.border-gray-200.rounded-lg.shadow.hover:bg-gray-100
       .my-2
         table.bg-white.min-w-full.text-left.border
@@ -45,7 +45,7 @@
                 td.px-3 = "#{subscription.fee}円"
               tr.border-b
                 th.px-3 = Subscription.human_attribute_name(:my_account_url)
-                td.px-3 = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: 'noopener noreferrer'
+                td.px-3.underline = link_to subscription.my_account_url.to_s, subscription.my_account_url, target: :_blank, rel: 'noopener noreferrer'
               tr.border-b
                 th.px-3 = Subscription.human_attribute_name(:subscribed)
                 td.px-3 = subscription.subscribed_status
