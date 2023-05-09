@@ -1,26 +1,32 @@
-=form_with model: subscription do |f|
-  - if subscription.errors.any?
-        ul.my-5.bg-red-100.border.border-red-400.text-red-700.px-4.py-3.w-max.rounded
-          - subscription.errors.full_messages.each do |message|
-            li.message-body.my-3 = message
-  .my-5
-    = f.label :name
-    = f.text_field :name, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
-  .my-5
-    = f.label :payment_date
-    = f.date_field :payment_date, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
-  .my-5
-    = f.label :fee
-    = f.number_field :fee, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
-  .my-5
-    = f.label :my_account_url
-    = f.url_field :my_account_url, placeholder: 'https://example.com/user', class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2'
-  .my-5
-    = f.label :subscribed, id: 'subscription_subscribed'
-    = f.select :subscribed, [['停止中', false], ['継続中', true]], { selected: true },
-      class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24'
-  .my-5
-    = f.label :cycle, id: 'subscription_cycle'
-    = f.select :cycle, [['1ヶ月毎', 1], ['2ヶ月毎', 2], ['3ヶ月毎', 3], ['6ヶ月毎', 6], ['12ヶ月毎', 12]], { include_blank: '選択してください' },
-      class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-48'
-  = f.submit nil, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'
+.flex.justify-center
+  =form_with model: subscription do |f|
+    - if subscription.errors.any?
+          ul.my-5.bg-red-100.border.border-red-400.text-red-700.px-4.py-3.w-max.rounded
+            - subscription.errors.full_messages.each do |message|
+              li.message-body.my-3 = message
+    .my-5
+      = f.label :name
+      = f.text_field :name, placeholder: 'サブスクリプション名', class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80'
+    .mt-5.mb-2
+      = f.label :payment_date
+      = f.date_field :payment_date, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80'
+    p.text-xs.text-zinc-500 ※次回支払い予定日の計算の基準日になります。
+    p.text-xs.text-zinc-500 ※今月以前の日付で指定してください。
+    .mt-5.mb-2
+      = f.label :fee
+      = f.number_field :fee, placeholder: 2000, class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80'
+    p.text-xs.text-zinc-500 ※半角数値で入力してください。
+    .my-5
+      = f.label :my_account_url
+      = f.url_field :my_account_url, placeholder: 'https://example.com/user', class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-80'
+    .my-5
+      = f.label :subscribed, id: 'subscription_subscribed'
+      = f.select :subscribed, [['停止中', false], ['継続中', true]], { selected: true },
+        class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-24'
+    .mt-5.mb-2
+      = f.label :cycle, id: 'subscription_cycle'
+      = f.select :cycle, [['1ヶ月毎', 1], ['2ヶ月毎', 2], ['3ヶ月毎', 3], ['6ヶ月毎', 6], ['12ヶ月毎', 12]], { include_blank: '選択してください' },
+        class: 'block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-48'
+    p.text-xs.text-zinc-500 ※サブスクリプションの更新周期を選択ください。
+    .text-center.mt-5
+      = f.submit nil, class: 'bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded'

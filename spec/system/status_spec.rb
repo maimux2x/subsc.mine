@@ -30,7 +30,7 @@ RSpec.describe 'Status', type: :system do
 
         click_on 'ステータス変更'
         select '継続中', from: 'ステータス'
-        fill_in 'お支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
+        fill_in '支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
         click_button '更新する'
 
         expect(page).to have_selector '.notification', text: 'サブスクリプション「停止から継続に変更するサブスク」を編集しました。'
