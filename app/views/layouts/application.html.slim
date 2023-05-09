@@ -18,7 +18,8 @@ html
           = link_to 'ログアウト', signout_path, id: 'sign_out'
     - if flash.notice.present?
       .notification.w-screen.bg-cyan-100.border-l-4.border-cyan-500.text-cyan-700.p-4 = flash.notice
-    main.container.mx-auto.my-10.px-5.
-      = yield
+    main.container.m-auto
+      .my-2.mx-3
+        = yield
     footer.is-size-7.mt-auto
         = render 'shared/footer'

@@ -30,8 +30,8 @@ RSpec.describe 'Subscriptions', type: :system do
           click_button '新規登録'
 
           fill_in 'サービス名', with: '最初のサブスク'
-          fill_in 'お支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
-          fill_in 'お支払金額', with: 1000
+          fill_in '支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
+          fill_in '支払金額', with: 1000
           fill_in 'マイアカウント', with: 'https://example.com/user'
           select '継続中', from: 'ステータス'
           select '1ヶ月毎', from: '周期'
@@ -47,8 +47,8 @@ RSpec.describe 'Subscriptions', type: :system do
           sign_in_as(user)
           click_button '新規登録'
           fill_in 'サービス名', with: ''
-          fill_in 'お支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
-          fill_in 'お支払金額', with: 1000
+          fill_in '支払基準日', with: DateTime.new(2023, 4, 1, 10, 30)
+          fill_in '支払金額', with: 1000
           fill_in 'マイアカウント', with: 'https://example.com/user'
           select '継続中', from: 'ステータス'
           select '1ヶ月毎', from: '周期'
