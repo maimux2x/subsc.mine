@@ -7,22 +7,20 @@ block.max-w
     .bg-blue-500.w-48.hover:bg-blue-700.text-white.font-bold.py-2.px-4.border.border-blue-700.rounded.m-auto
       = button_to 'Googleアカウントでログイン', '/auth/google_oauth2/', data: { turbo: 'false' }
   p.text-center.text-xs.text-zinc-500 ※上記ボタンをクリックすることで利用規約・プライバシーポリシーに同意したものとみなします。
-  p.text-center.text-xs.text-zinc-500 ※無料でご利用いただけます。
-  .max-w.my-6
-    h2.text-center.font-bold.text-zinc-500.md:text-2xl こんなことはありませんか？
-  .max-w.mb-3
-    = image_tag 'お天気　雨のフリーアイコン.png', class: 'm-auto'
-  section.block.md:w-6/12.m-auto.p-6.bg-white.border.border-gray-200.rounded-lg
-    ul
-      li.underline.pt-3.text-center.text-xs.md:text-base 複数のサブスクリプションを利用していてお支払日が管理できていない
-      li.underline.pt-3.text-center.text-xs.md:text-base 無料期間中に解約しようとして、期間が過ぎてしまっていた
-      li.underline.pt-3.text-center.text-xs.md:text-base クレジットカードの変更を忘れて更新が止まってしまった
-  .max-w.my-6
-    h2.text-center.font-bold.text-zinc-500.md:text-2xl その課題、Subsc.mineで解決しましょう！
-  .max-w.mb-3
-    = image_tag '明度アイコン.png', class: 'm-auto'
-  section.block.md:w-6/12.m-auto.my-5.p-6.bg-white.border.border-gray-200.rounded-lg.mb-10
-    ul
-      li.font-bold.pt-3.text-center.text-xs.md:text-base ☑︎利用しているサブスクリプションを一覧管理ができる
-      li.font-bold.pt-3.text-center.text-xs.md:text-base ☑︎サブスクマインにお支払日と課金周期を登録すると次回以降を自動で計算
-      li.font-bold.pt-3.text-center.text-xs.md:text-base ☑︎次回お支払い予定日をカレンダーアプリと同期できる
+  p.mb-10.text-center.text-xs.text-zinc-500 ※無料でご利用いただけます。
+  .max-w.my-2
+    h1.text-center.font-bold.text-zinc-500.md:text-2xl こんなことはありませんか？
+  .max-w.my-3
+    = image_tag 'IMG_20230509_141918.jpg', class: 'm-auto w-3/12 md:w-1/12'
+  ul
+    li.pt-3.text-center.text-xs.md:text-base 利用中のサブスクリプションの支払日が管理できていない
+    li.pt-3.text-center.text-xs.md:text-base 無料期間中に解約しようとして、期間が過ぎていた
+    li.pt-3.text-center.text-xs.md:text-base クレジットカードの変更を忘れて更新が止まってしまった
+  .max-w.mt-12.mb-2
+    h1.text-center.font-bold.text-zinc-500.md:text-2xl その課題、Subsc.mineで解決しましょう！
+  .max-w.my-3
+    = image_tag 'IMG_20230509_141950.jpg', class: 'm-auto w-3/12 md:w-1/12'
+  ul
+    li.pt-3.text-center.text-xs.md:text-base 利用しているサブスクリプションを一覧管理ができる
+    li.pt-3.text-center.text-xs.md:text-base Subsc.mineに支払日と課金周期を登録すると次回以降を自動で計算
+    li.pt-3.text-center.text-xs.md:text-base 次回支払い予定日をカレンダーアプリと同期できる
