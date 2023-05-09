@@ -101,4 +101,31 @@ RSpec.describe 'Subscriptions', type: :system do
       end
     end
   end
+
+  describe 'check to export correct user subscriptions' do
+    it 'export correct user subscriptions to ical' do
+      travel_to Time.zone.local(2023, 0o4, 0o1) do
+        create(:subscription, user:, name: '継続中のデータ', subscribed: true)
+        create(:subscription, user:, name: '停止中のデータ', subscribed: false)
+        create(:subscription, user: other_user, name: '別ユーザーのデータ', subscribed: true)
+        subscriptions = user.subscriptions.where(subscribed: true)
+
+        cal = Icalendar::Calendar.new
+        subscriptions.each do |subscription|
+          tzid = 'Asia/Tokyo'
+
+          cal.event do |e|
+            e.dtstart     = Icalendar::Values::DateTime.new subscription.calc_next_payment_date, { 'tzid' => tzid }
+            e.dtend       = Icalendar::Values::DateTime.new subscription.calc_next_payment_date, { 'tzid' => tzid }
+            e.summary     = subscription.name
+            e.uid         = "subscription#{subscription.id}"
+            e.sequence    = Time.now.to_i
+          end
+        end
+        expect(cal.to_ical).to include('継続中のデータ')
+        expect(cal.to_ical).not_to include('停止中のデータ')
+        expect(cal.to_ical).not_to include('別ユーザーのデータ')
+      end
+    end
+  end
 end
